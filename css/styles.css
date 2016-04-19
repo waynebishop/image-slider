@@ -2,4 +2,7 @@
 	background-color: red; 
 }	*/
 
-/*Comment goes here*/
+main {
+	width: 960px;
+	margin: 0 auto;
+}
