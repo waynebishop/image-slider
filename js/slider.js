@@ -48,14 +48,50 @@ function changePicture() {
 	//Which image is in use?
 	var imageInUse = slider.style.backgroundImage;
 
-	// extract the URL
-	var bits = imageInUse.split('"'); 
+	// extract the URL and split it up in sections re  double quotes ""
+	var bits = imageInUse.split('"');
 
 	console.log(bits);
 
+	// Save the link inside a variable
+	var url = bits[1];
 
+	// Find what index is in use in the image sources
+	var index = imageSources.indexOf( url )
 
+	  
+
+	// If the next button was clicked
+	if( this.id == 'next' ) {
+		index++;
+	
+		// If the index is beyond the last image
+		if ( index == imageSources.length ) {
+			index = 0;
+			console.log('You have reached the end');
+	
+		}
+
+	} else {
+		index--;
+
+		// if you have gone before the first image
+		if( index == -1 ) {
+			index = imageSources.length - 1;	
+		}
+	}
+
+	console.log(index);
+
+	// Get the new URL
+	var newUrl = imageSources[index];
+
+	// Change the picture in the slider
+	slider.style.backgroundImage = 'url('+ newUrl +')';
+	
 }
+
+
 
 
 
